@@ -103,5 +103,9 @@ console.log(arr2.reverse()); // ------ mutate!!!!!!!!!!!!!!!!!!!!!!!!
 console.log(arr2);
 
 // CONCAT
-const letters = arr.concat(arr2);
+const letters = arr.concat(arr2); // same as spread
 console.log(letters);
+console.log([...arr, ...arr2]); // same as concat
+console.log([arr + arr2]); // weird
+
+console.log(letters.join(' - '));
