@@ -62,15 +62,21 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 const displayMov = function (mavements) {
+  containerMovements.innerHTML = '';
   mavements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `<div class="movements__row">
-          <div class="movements__type movements__type--deposit">${i}</div>
+          <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
           <div class="movements__value">${mov}</div>
         </div>`;
+    containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
 
 displayMov(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -93,7 +99,7 @@ console.log(
 );
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
-
+/*
 // SLICE
 console.log(arr.slice(2, 4));
 console.log(arr.slice(-3));
@@ -103,7 +109,7 @@ console.log('full array: ', arr);
 
 // SPLICE - mutates array
 //console.log(arr.splice(2));
-arr.splice(-1); // remove last element *-*//*-**/*--
+arr.splice(-1); // remove last element 
 console.log(arr);
 arr.splice(1, 1);
 console.log(arr);
@@ -176,3 +182,4 @@ currenciesUnique.forEach(function (val, _a, _b) {
 
 ///  ************************************** 151 *****************************
 console.log('****************************** 151 *****************************');
+*/
