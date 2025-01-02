@@ -80,6 +80,24 @@ console.log(
 );
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE
 console.log(arr.slice(2, 4));
 console.log(arr.slice(-3));
 console.log(arr.slice(1, -2));
+console.log([...arr]);
+console.log('full array: ', arr);
+
+// SPLICE - mutates array
+//console.log(arr.splice(2));
+arr.splice(-1); // remove last element *-*//*-**/*--
+console.log(arr);
+arr.splice(1, 1);
+console.log(arr);
+
+//REVERSE
+
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse()); // ------ mutate!!!!!!!!!!!!!!!!!!!!!!!!
+console.log(arr2);
