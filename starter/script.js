@@ -6,28 +6,28 @@
 
 // Data
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Deividas Strole',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Donald John Trump',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
 };
 
 const account3 = {
-  owner: 'Steven Thomas Williams',
+  owner: 'Joe Robinette Biden',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
 };
 
 const account4 = {
-  owner: 'Sarah Smith',
+  owner: 'Barack Hussein Obama',
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
@@ -74,6 +74,9 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// js 1111
+
 /// ************************************************ 147 **********************************
 console.log(
   '**************************************** 147 **********************************'
@@ -157,6 +160,9 @@ currencies.forEach(function (val, key, map) {
 // SET
 const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
 console.log(currenciesUnique);
-currenciesUnique.forEach(function (val, key, map) {
-  console.log(`${key}: ${val}`);
+currenciesUnique.forEach(function (val, _a, _b) {
+  console.log(`${val}: ${val}`);
 });
+
+///  ************************************** 151 *****************************
+console.log('****************************** 151 *****************************');
