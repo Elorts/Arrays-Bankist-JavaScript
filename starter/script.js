@@ -109,3 +109,17 @@ console.log([...arr, ...arr2]); // same as concat
 console.log([arr + arr2]); // weird
 
 console.log(letters.join(' - '));
+
+///  ************************************** 147 *****************************
+console.log('****************************** 147 *****************************');
+
+const arras = [23, 11, 64];
+console.log(arras[0]);
+
+console.log(arras.at(0));
+
+// GETTING LAST ELEMENT
+console.log(arras[arras.length - 1]);
+console.log(arras.slice(-1)[0]); // [0] <- retuyrns value!!!
+console.log(arras.at(-1));
+console.log('deividas'.at(-1));
