@@ -82,7 +82,15 @@ const calcDisplyBalance = function (movements) {
   labelBalance.textContent = `${balance}`;
 };
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}⚡`;
+};
+
 calcDisplyBalance(account1.movements);
+calcDisplaySummary(account1.movements);
 
 const createUN = function (acc) {
   acc.forEach(a => {
