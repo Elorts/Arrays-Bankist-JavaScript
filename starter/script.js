@@ -100,7 +100,7 @@ console.log(accounts);
 //   ['GBP', 'Pound sterling'],
 // ]);
 
-//const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -209,3 +209,14 @@ const mDes = movements.map(
 );
 console.log(mDes);
 */
+
+///  ************************************** 157 *****************************
+console.log('****************************** 157 *****************************');
+
+const deposits = movements.filter(mov => mov > 0); // only if true arr element gets into array
+
+console.log(movements);
+console.log(deposits);
+
+const w = movements.filter(wit => wit < 0);
+console.log(w);
