@@ -61,7 +61,7 @@ const calcAverageHumanAge = function (ages) {
 
   const adult = humanAge.filter(a => a >= 18);
 
-  const average = adult.reduce((acc, a) => acc + a, 0) / adult.length();
+  const average = adult.reduce((acc, a) => acc + a, 0) / adult.length;
 
   console.log(humanAge);
   console.log(adult);
