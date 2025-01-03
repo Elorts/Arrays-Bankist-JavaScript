@@ -77,6 +77,19 @@ const displayMov = function (mavements) {
 
 displayMov(account1.movements);
 
+const createUN = function (acc) {
+  acc.forEach(a => {
+    a.userName = a.owner
+      .toLowerCase()
+      .split(' ')
+      .map(word => word[0])
+      .join('');
+  });
+};
+
+createUN(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -180,10 +193,10 @@ currenciesUnique.forEach(function (val, _a, _b) {
   console.log(`${val}: ${val}`);
 });
 
-///  ************************************** 151 *****************************
-console.log('****************************** 151 *****************************');
+///  ************************************** 155 *****************************
+console.log('****************************** 155 *****************************');
 */
-
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const eurToUsd = 1.1;
@@ -195,3 +208,4 @@ const mDes = movements.map(
     `${i + 1} You ${mov < 0 ? 'withdrew' : 'deposited'} ${Math.abs(mov)}`
 );
 console.log(mDes);
+*/
