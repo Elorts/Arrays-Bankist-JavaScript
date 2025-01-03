@@ -1,0 +1,323 @@
+/*
+ * Updated CSS with a new color palette and refreshed styles.
+ * Enjoy the new look! 😁
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50; /* Updated text color */
+  background-color: #ecf0f1; /* Light background for a clean look */
+  height: 100vh;
+  padding: 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.welcome {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #34495e; /* Updated to a dark gray-blue */
+}
+
+.logo {
+  height: 6rem;
+}
+
+.login {
+  display: flex;
+}
+
+.login__input {
+  border: none;
+  padding: 0.7rem 2.5rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  text-align: center;
+  width: 14rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
+  color: #2c3e50;
+  background-color: #bdc3c7; /* Light gray for input background */
+  border: 1px solid #95a5a6; /* Gray border */
+  transition: all 0.3s;
+}
+
+.login__input:focus {
+  outline: none;
+  border: 1px solid #7f8c8d; /* Darker border on focus */
+}
+
+.login__input::placeholder {
+  color: #95a5a6;
+}
+
+.login__btn {
+  border: none;
+  background: none;
+  font-size: 2rem;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login__btn:hover,
+.login__btn:focus,
+.btn--sort:hover,
+.btn--sort:focus {
+  outline: none;
+  color: #7f8c8d;
+}
+
+/* MAIN */
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+  transition: all 1s;
+}
+
+.balance {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.balance__label {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: -0.2rem;
+  color: #34495e;
+}
+
+.balance__date {
+  font-size: 1.4rem;
+  color: #7f8c8d;
+}
+
+.balance__value {
+  font-size: 4.8rem;
+  font-weight: 500;
+  color: #16a085; /* Fresh green for balance value */
+}
+
+/* MOVEMENTS */
+.movements {
+  grid-row: 2 / span 3;
+  background-color: #ffffff;
+  border-radius: 2rem;
+  overflow: scroll;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.movements__row {
+  padding: 2.5rem 4rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.movements__type {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  padding: 0.2rem 1.2rem;
+  border-radius: 1.5rem;
+  margin-right: 2rem;
+}
+
+.movements__date {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #7f8c8d;
+}
+
+.movements__type--deposit {
+  background-image: linear-gradient(
+    to top left,
+    #1abc9c,
+    #2ecc71
+  ); /* Green gradient */
+}
+
+.movements__type--withdrawal {
+  background-image: linear-gradient(
+    to top left,
+    #e74c3c,
+    #c0392b
+  ); /* Red gradient */
+}
+
+.movements__value {
+  font-size: 1.8rem;
+  margin-left: auto;
+  color: #34495e;
+}
+
+/* SUMMARY */
+.summary {
+  grid-row: 5 / 6;
+  display: flex;
+  align-items: baseline;
+  padding: 0 0.3rem;
+  margin-top: 1rem;
+}
+
+.summary__label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 1rem;
+  color: #34495e;
+}
+
+.summary__value {
+  font-size: 2.4rem;
+  margin-right: 3rem;
+}
+
+.summary__value--in,
+.summary__value--interest {
+  color: #2ecc71; /* Bright green */
+}
+
+.summary__value--out {
+  color: #e74c3c; /* Bright red */
+}
+
+.btn--sort {
+  margin-left: auto;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #34495e;
+}
+
+/* OPERATIONS */
+.operation {
+  border-radius: 2rem;
+  padding: 3rem 4rem;
+  color: #ffffff;
+}
+
+.operation--transfer {
+  background-image: linear-gradient(
+    to top left,
+    #f1c40f,
+    #f39c12
+  ); /* Yellow gradient */
+}
+
+.operation--loan {
+  background-image: linear-gradient(
+    to top left,
+    #2ecc71,
+    #1abc9c
+  ); /* Green gradient */
+}
+
+.operation--close {
+  background-image: linear-gradient(
+    to top left,
+    #e74c3c,
+    #c0392b
+  ); /* Red gradient */
+}
+
+h2 {
+  margin-bottom: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+}
+
+.form.form--loan {
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+
+.form__label--loan {
+  grid-row: 2;
+}
+
+.form__input {
+  width: 100%;
+  border: none;
+  background-color: #ecf0f1;
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: #bdc3c7;
+}
+
+.form__label {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #34495e;
+}
+
+.form__btn {
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+  background-color: #bdc3c7;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form__btn:focus {
+  outline: none;
+  background-color: #95a5a6;
+}
+
+.logout-timer {
+  padding: 0 0.3rem;
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 1.3rem;
+  color: #34495e;
+}
+
+.timer {
+  font-weight: 600;
+}
