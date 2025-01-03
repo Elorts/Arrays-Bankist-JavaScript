@@ -244,3 +244,11 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 console.log(max);
 */
+
+// PIPELINE
+const total = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * 1.1)
+  .reduce((ACC, MOV) => ACC + MOV, 0);
+
+console.log(total);
