@@ -92,7 +92,7 @@ displayMov(account1.movements);
 /////////////////////////////////////////////////
 
 // js 1111
-
+/*
 /// ************************************************ 147 **********************************
 console.log(
   '**************************************** 147 **********************************'
@@ -183,3 +183,15 @@ currenciesUnique.forEach(function (val, _a, _b) {
 ///  ************************************** 151 *****************************
 console.log('****************************** 151 *****************************');
 */
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+console.log(movements);
+console.log(movementsUSD);
+const mDes = movements.map(
+  (mov, i) =>
+    `${i + 1} You ${mov < 0 ? 'withdrew' : 'deposited'} ${Math.abs(mov)}`
+);
+console.log(mDes);
