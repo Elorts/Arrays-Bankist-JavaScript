@@ -227,7 +227,7 @@ console.log(deposits);
 const w = movements.filter(wit => wit < 0);
 console.log(w);
 */
-
+/*
 ///  ************************************** 158 *****************************
 console.log('****************************** 158 *****************************');
 
@@ -235,7 +235,7 @@ console.log(movements);
 const balance = movements.reduce((acc, cur) => acc + cur, 0);
 console.log(balance);
 */
-
+/*
 // Maximum val
 /*
 const max = movements.reduce((acc, mov) => {
@@ -243,4 +243,4 @@ const max = movements.reduce((acc, mov) => {
   else return mov;
 }, movements[0]);
 console.log(max);
-
+*/
