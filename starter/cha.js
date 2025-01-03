@@ -58,8 +58,11 @@ GOOD LUCK 😀
 //if the dog is <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4.
 const calcAverageHumanAge = function (ages) {
   const humanAge = ages.map(a => (a <= 2 ? 2 * a : 16 + a * 4));
-};
 
-console.log(humanAge);
+  const adult = humanAge.filter(a => a >= 18);
+
+  console.log(humanAge);
+  console.log(adult);
+};
 
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
