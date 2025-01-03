@@ -77,6 +77,13 @@ const displayMov = function (mavements) {
 
 displayMov(account1.movements);
 
+const calcDisplyBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}`;
+};
+
+calcDisplyBalance(account1.movements);
+
 const createUN = function (acc) {
   acc.forEach(a => {
     a.userName = a.owner
@@ -89,7 +96,6 @@ const createUN = function (acc) {
 
 createUN(accounts);
 console.log(accounts);
-
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -209,7 +215,7 @@ const mDes = movements.map(
 );
 console.log(mDes);
 */
-
+/*
 ///  ************************************** 157 *****************************
 console.log('****************************** 157 *****************************');
 
@@ -220,3 +226,12 @@ console.log(deposits);
 
 const w = movements.filter(wit => wit < 0);
 console.log(w);
+*/
+/*
+///  ************************************** 158 *****************************
+console.log('****************************** 158 *****************************');
+
+console.log(movements);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
+*/
