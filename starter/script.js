@@ -267,6 +267,9 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 console.log(max);
 */
+/*
+///  ************************************** 160 *****************************
+console.log('****************************** 160 *****************************');
 
 // PIPELINE
 const total = movements
@@ -275,3 +278,22 @@ const total = movements
   .reduce((ACC, MOV) => ACC + MOV, 0);
 
 console.log(total);
+*/
+///  ************************************** 162 *****************************
+console.log('****************************** 162 *****************************');
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Donald John Trump');
+console.log(account);
+
+for (const acc of accounts) {
+  if (acc.owner === 'Donald John Trump') console.log(acc);
+}
+
+//  ************************************** 163 *****************************
+console.log('****************************** 163 *****************************');
