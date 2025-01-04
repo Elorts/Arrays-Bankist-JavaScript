@@ -75,27 +75,25 @@ const displayMov = function (mavements) {
   });
 };
 
-displayMov(account1.movements);
-
 const calcDisplyBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}`;
 };
 
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}⚡`;
 
-  const out = movements
+  const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}⚡`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       console.log(arr);
       return int >= 1;
@@ -103,9 +101,6 @@ const calcDisplaySummary = function (movements) {
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}⚡`;
 };
-
-calcDisplyBalance(account1.movements);
-calcDisplaySummary(account1.movements);
 
 const createUN = function (acc) {
   acc.forEach(a => {
@@ -134,16 +129,23 @@ btnLogin.addEventListener('click', function (e) {
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI & Welcome
     labelWelcome.textContent = `Welcome back, ${
-      currentAccount.owner.split(' ')[0];
+      currentAccount.owner.split(' ')[0]
     }`;
 
+    containerApp.style.opacity = 100;
+
+    // CLEAR INPUT FIELDS
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
     //Display movements
+    displayMov(currentAccount.movements);
 
     //Display balance
-
+    calcDisplyBalance(currentAccount.movements);
     //Displaysummary
 
-    console.log('You are logged in!!!');
+    calcDisplaySummary(currentAccount);
   }
 });
 
