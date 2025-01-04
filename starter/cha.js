@@ -56,9 +56,34 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 //if the dog is <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4.
+/*
 const calcAverageHumanAge = function (ages) {
   const humanAge = ages.map(a => (a <= 2 ? 2 * a : 16 + a * 4));
   const adult = humanAge.filter(a => a >= 18);
   const average = adult.reduce((acc, a) => acc + a, 0) / adult.length;
   console.log(average);
 };
+*/
+///////////////////////////////////////
+// Coding Challenge #3
+
+/* 
+Rewrite the 'calcAverageHumanAge' function from the previous 
+challenge, but this time as an arrow function, and using chaining!
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+
+const calcAverageHumanAge = function (ages) {
+  const result = ages
+    .map(a => (a <= 2 ? 2 * a : 16 + a * 4))
+    .filter(a => a >= 18)
+    .reduce((acc, a, i, arr) => acc + a / arr.length, 0);
+
+  console.log(result);
+};
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
