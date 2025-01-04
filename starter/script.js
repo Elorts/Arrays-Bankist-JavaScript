@@ -119,6 +119,34 @@ const createUN = function (acc) {
 
 createUN(accounts);
 console.log(accounts);
+
+// EVENT HANDLER
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('Login');
+  currentAccount = accounts.find(
+    acc => acc.userName === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI & Welcome
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0];
+    }`;
+
+    //Display movements
+
+    //Display balance
+
+    //Displaysummary
+
+    console.log('You are logged in!!!');
+  }
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -279,6 +307,7 @@ const total = movements
 
 console.log(total);
 */
+/*
 ///  ************************************** 162 *****************************
 console.log('****************************** 162 *****************************');
 
@@ -294,6 +323,6 @@ console.log(account);
 for (const acc of accounts) {
   if (acc.owner === 'Donald John Trump') console.log(acc);
 }
-
+*/
 //  ************************************** 163 *****************************
 console.log('****************************** 163 *****************************');
