@@ -460,7 +460,7 @@ const allBalance2 = accounts
   .reduce((acc, mov) => acc + mov, 0);
 console.log(allBalance2);
 */
-
+/*
 //  ************************************** 170 *****************************
 console.log('****************************** 170 *****************************');
 
@@ -470,7 +470,7 @@ console.log(owners.sort()); // mutates!
 //console.log(movements.sort());
 
 // FOR NUMBERS
-console.log(movements);
+//console.log(movements);
 /*
 movements.sort((a, b) => {
   if (a > b) return 1;
@@ -482,3 +482,24 @@ console.log(movements);
 movements.sort((a, b) => a - b);
 console.log(movements);
 */
+
+//  ************************************** 171 *****************************
+console.log('****************************** 171 *****************************');
+
+console.log(movements);
+/*
+const groupedMovements = Object.groupBy(movements, movement =>
+  movement > 0 ? 'deposits' : 'withdrawals'
+);
+console.log(groupedMovements);
+*/
+
+const groupledByActivity = Object.groupBy(accounts, account => {
+  const movementCount = account.movements.length;
+  if (movementCount >= 8) return 'very active!';
+  if (movementCount >= 4) return 'active!';
+  if (movementCount >= 1) return 'ehhhh...';
+  return 'inactive';
+});
+
+console.log(groupledByActivity);
