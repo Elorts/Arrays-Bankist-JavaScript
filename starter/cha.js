@@ -199,7 +199,7 @@ for (const b of breeds) {
 console.log('swim adj: ' + a);
 */
 //6.
-console.log('average weight < 10: ' + breeds.some(b => b.averageWeight <= 10));
+console.log('average weight < 10: ' + breeds.every(b => b.averageWeight > 10));
 
 //7.
 console.log(
@@ -209,14 +209,14 @@ console.log(
 //bonus.
 
 // heaveast weight + fetch
-
+/*
 let maxW = 0;
 
 for (const b of breeds) {
   if (b.averageWeight > maxW && b.activities.includes('fetch'))
     maxW = b.averageWeight;
 }
-
+*/
 const weights = breeds
   .filter(b => b.activities.includes('fetch')) // Filter breeds that include 'fetch'
   .map(b => b.averageWeight);
