@@ -375,5 +375,14 @@ for (const acc of accounts) {
   if (acc.owner === 'Donald John Trump') console.log(acc);
 }
 */
-//  ************************************** 163 *****************************
-console.log('****************************** 163 *****************************');
+//  ************************************** 166 *****************************
+console.log('****************************** 166 *****************************');
+
+console.log(movements);
+const lastWithdrawal = movements.findLast(mov => mov < 2000);
+console.log(lastWithdrawal);
+
+const lastLarge = movements.findLastIndex(mov => Math.abs(mov) > 1000);
+console.log(lastLarge);
+
+//('Your latest large movement was ');
