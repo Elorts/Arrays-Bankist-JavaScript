@@ -515,6 +515,7 @@ console.log(groupedAccounts);
 const groupedAccounts2 = Object.groupBy(accounts, ({ type }) => type);
 console.log(groupedAccounts2);
 */
+/*
 //  ************************************** 172 *****************************
 console.log('****************************** 172 *****************************');
 
@@ -553,3 +554,22 @@ labelBalance.addEventListener('click', function () {
 
   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
 });
+*/
+
+//  ************************************** 173 *****************************
+console.log('****************************** 173 *****************************');
+
+console.log(movements);
+//const rev = movements.reverse(); // destructive methood
+console.log(movements); // mutated
+
+const revNotMut = movements.toReversed(); // original not chenged!!!
+console.log(revNotMut);
+
+//toSorted (sort), toSpliced (splice) - not destructive!
+/*
+movements[1] = 2000;
+console.log(movements);
+*/
+const newMovements = movements.copyWithin(1, 2000);
+console.log(newMovements);
