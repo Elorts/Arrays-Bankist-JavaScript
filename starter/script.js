@@ -120,7 +120,7 @@ const createUN = function (acc) {
 };
 
 createUN(accounts);
-console.log(accounts);
+//console.log(accounts);
 
 const updateUI = function (acc) {
   //Display movements
@@ -486,7 +486,7 @@ console.log(movements);
 movements.sort((a, b) => a - b);
 console.log(movements);
 */
-
+/*
 //  ************************************** 171 *****************************
 console.log('****************************** 171 *****************************');
 
@@ -508,9 +508,48 @@ const groupledByActivity = Object.groupBy(accounts, account => {
 
 console.log(groupledByActivity);
 */
-
+/*
 const groupedAccounts = Object.groupBy(accounts, acc => acc.type);
 console.log(groupedAccounts);
 
 const groupedAccounts2 = Object.groupBy(accounts, ({ type }) => type);
 console.log(groupedAccounts2);
+*/
+//  ************************************** 172 *****************************
+console.log('****************************** 172 *****************************');
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+// console.log(new Array(1, 2, 3, 4, 50));
+
+//empty array
+const x = new Array(7);
+// console.log(x);
+
+x.fill(1, 3, 5);
+console.log(x);
+
+arr.fill(23, 4, 6);
+console.log(arr);
+
+//Array.from()
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+console.log(z);
+
+const dice = Array.from(
+  { length: 100 },
+  (_, i) => Math.floor(Math.random() * 6) + 1
+);
+console.log(dice);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('Eu', ''))
+  );
+  console.log('???? :' + movementsUI);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+});
