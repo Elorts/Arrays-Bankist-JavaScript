@@ -167,13 +167,35 @@ const uniqueActivities = [...new Set(allActivities)]; //???
 console.log(uniqueActivities);
 
 //5. ???????????????????????????????????
-
+/*
 //filter?
-const swimmingAdjacent = breeds.map(
-  breeds.find(b => b.activities.includes('swimming')).activities
-);
-console.log('swimAdj: ' + swimmingAdjacent);
+const swimmingAdjacent = breeds
+  .filter(b => b.activities.includes('swimming'))
+  .map(b => b.activities);
 
+console.log('swimAdj: ' + swimmingAdjacent);
+*/
+
+const swimmingAdjacent = [
+  ...new Set(
+    breeds
+      .filter(b => b.activities.includes('swimming'))
+      .flatMap(b => b.activities)
+      .filter(activity => activity !== 'swimming') // Remove "swimming"
+  ),
+];
+
+console.log('swim adj: ' + swimmingAdjacent);
+
+/*
+let a = [];
+for (const b of breeds) {
+  if (b.activities.includes('swimming')) {
+    a.push(b.activities);
+  }
+}
+console.log('swim adj: ' + a);
+*/
 //6.
 console.log('average weight < 10: ' + breeds.some(b => b.averageWeight <= 10));
 
@@ -181,3 +203,24 @@ console.log('average weight < 10: ' + breeds.some(b => b.averageWeight <= 10));
 console.log(
   'active dogs (3+ activities) ' + breeds.some(b => b.activities.length >= 3)
 );
+
+//bonus.
+
+// heaveast weight + fetch
+
+let maxW = 0;
+
+for (const b of breeds) {
+  if (b.averageWeight > maxW && b.activities.includes('fetch'))
+    maxW = b.averageWeight;
+}
+
+const weights = breeds
+  .filter(b => b.activities.includes('fetch')) // Filter breeds that include 'fetch'
+  .map(b => b.averageWeight);
+
+console.log(Math.max(...weights));
+
+//breeds.find(b => ));
+
+//console.log('Winer' + maxW);
