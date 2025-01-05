@@ -167,24 +167,26 @@ const uniqueActivities = [...new Set(allActivities)]; //???
 console.log(uniqueActivities);
 
 //5. ???????????????????????????????????
-/*
-//filter?
-const swimmingAdjacent = breeds
-  .filter(b => b.activities.includes('swimming'))
-  .map(b => b.activities);
 
-console.log('swimAdj: ' + swimmingAdjacent);
-*/
+// const swimmingAdjacent = [
+//   ...new Set(
+//     breeds
+//       .filter(b => b.activities.includes('swimming'))
+//       .flatMap(b => b.activities)
+//       .filter(activity => activity !== 'swimming') // Remove "swimming"
+//   ),
+// ];
 
 const swimmingAdjacent = [
   ...new Set(
     breeds
       .filter(b => b.activities.includes('swimming'))
       .flatMap(b => b.activities)
-      .filter(activity => activity !== 'swimming') // Remove "swimming"
+      .filter(activity => activity !== 'swimming')
   ),
 ];
-
+//.filter(activity => activity !== 'swimming') // Remove "swimming"
+//
 console.log('swim adj: ' + swimmingAdjacent);
 
 /*
