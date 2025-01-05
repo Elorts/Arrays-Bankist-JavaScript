@@ -585,11 +585,42 @@ const total = accounts
   .reduce((t, c) => t + c, 0);
 console.log(total);
 */
-
+/*
 //2.
 const thousand = accounts
   .flatMap(acc => acc.movements)
   //.filter(mov => mov >= 1000).length;
-  .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
 
 console.log(thousand);
+*/
+/*
+//3.
+const { deposits, withdrawls } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawls'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawls: 0 }
+  );
+console.log(deposits, withdrawls);
+*/
+
+//4.
+// this is a nice title -> This Is a Nice Title
+
+const convertT = function (title) {
+  const exeptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1));
+  return titleCase;
+};
+
+console.log(convertT('this is a nice title'));
+console.log(convertT('this is a LONG title but not too long'));
+console.log(convertT('this is a nice title'));
