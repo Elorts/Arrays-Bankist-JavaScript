@@ -613,14 +613,16 @@ console.log(deposits, withdrawls);
 // this is a nice title -> This Is a Nice Title
 
 const convertT = function (title) {
-  const exeptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const capitalise = str => str[0].toUpperCase() + str.slice(1);
+  const exeptions = ['a', 'an', 'the', 'but', 'and', 'or', 'on', 'in', 'with'];
   const titleCase = title
     .toLowerCase()
     .split(' ')
-    .map(word => word[0].toUpperCase() + word.slice(1));
-  return titleCase;
+    .map(word => (exeptions.includes(word) ? word : capitalise(word)))
+    .join(' ');
+  return capitalise(titleCase);
 };
 
 console.log(convertT('this is a nice title'));
 console.log(convertT('this is a LONG title but not too long'));
-console.log(convertT('this is a nice title'));
+console.log(convertT('and this is a nice title'));
