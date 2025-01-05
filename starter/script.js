@@ -555,7 +555,7 @@ labelBalance.addEventListener('click', function () {
   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
 });
 */
-
+/*
 //  ************************************** 173 *****************************
 console.log('****************************** 173 *****************************');
 
@@ -571,5 +571,25 @@ console.log(revNotMut);
 movements[1] = 2000;
 console.log(movements);
 */
+/*
 const newMovements = movements.copyWithin(1, 2000);
 console.log(newMovements);
+*/
+//  ************************************** 175 *****************************
+console.log('****************************** 175 *****************************');
+/*
+//1.
+const total = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((t, c) => t + c, 0);
+console.log(total);
+*/
+
+//2.
+const thousand = accounts
+  .flatMap(acc => acc.movements)
+  //.filter(mov => mov >= 1000).length;
+  .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+
+console.log(thousand);
