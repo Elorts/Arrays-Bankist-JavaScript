@@ -179,11 +179,23 @@ btnTransfer.addEventListener('click', function (e) {
 
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
-  //if (currentAccount.createUN === )
 
-  console.log('Delete!!!');
-  console.log(currentAccount);
-  accounts.splice(currentAccount);
+  if (
+    currentAccount.userName === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.userName === currentAccount.userName
+    );
+
+    //Delete Account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  } else {
+    console.log('Wrong creds!');
+  }
 });
 
 /////////////////////////////////////////////////
