@@ -61,9 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMov = function (mavements) {
+const displayMov = function (mavements, sort = false) {
   containerMovements.innerHTML = '';
-  mavements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `<div class="movements__row">
           <div class="movements__type movements__type--${type}">${
@@ -212,6 +215,13 @@ btnClose.addEventListener('click', function (e) {
   } else {
     console.log('Wrong creds!');
   }
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMov(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -449,4 +459,26 @@ const allBalance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(allBalance2);
+*/
+
+//  ************************************** 170 *****************************
+console.log('****************************** 170 *****************************');
+
+// FOR STRINGS ONLY!!!!!!!!!!!!!!!!!
+const owners = ['Deividas', 'Zigmas', 'Jonas', 'Mikas'];
+console.log(owners.sort()); // mutates!
+//console.log(movements.sort());
+
+// FOR NUMBERS
+console.log(movements);
+/*
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (a < b) return -1;
+});
+console.log(movements);
+*/
+/*
+movements.sort((a, b) => a - b);
+console.log(movements);
 */
