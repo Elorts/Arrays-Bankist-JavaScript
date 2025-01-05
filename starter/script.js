@@ -405,7 +405,7 @@ console.log(lastLarge);
 
 //('Your latest large movement was ');
 */
-
+/*
 //  ************************************** 167 *****************************
 console.log('****************************** 167 *****************************');
 
@@ -426,3 +426,27 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+*/
+/*
+//  ************************************** 168 *****************************
+console.log('****************************** 168 *****************************');
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+//flat
+const allBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(allBalance);
+
+//flatMap
+const allBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(allBalance2);
+*/
