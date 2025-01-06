@@ -249,6 +249,17 @@ Eating an okay amount means the dog's current food portion is within a range 10%
 HINT 1: Use many different tools to solve these challenges, you can use the summary lecture to choose between them 😉
 HINT 2: Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
 
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 22, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 8, curFood: 340, owners: ['Michael'] }
+];
+
+
+
+
 TEST DATA:
 const dogs = [
   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
@@ -263,7 +274,7 @@ GOOD LUCK 😀 250
 const dogs = [
   { weight: 22, curFood: 284, owners: ['Alice', 'Bob'] },
   { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 13, curFood: 191, owners: ['Sarah', 'John'] },
   { weight: 32, curFood: 340, owners: ['Michael'] },
 ];
 
@@ -335,6 +346,30 @@ const okAm = dogs.every(
     calcNormalF2(dog.weight) * 0.9 < dog.curFood &&
     calcNormalF2(dog.weight) * 1.1 > dog.curFood
 );
-console.log(okAm);
+console.log('dogs eationg ok?: ', okAm);
 
 //current > (recommended * 0.90) && current < (recommended * 1.10)
+
+//7.
+const whoEatsOk = dogs.filter(
+  dog =>
+    calcNormalF2(dog.weight) * 0.9 < dog.curFood &&
+    calcNormalF2(dog.weight) * 1.1 > dog.curFood
+);
+//console.log(calcNormalF2(dogs[3].weight) * 0.9);
+console.log(whoEatsOk);
+
+//8.
+console.log(' ----- 8 -----');
+const groupedDogs = dogs.reduce(
+  (group, dog) => {
+    if (dog.curFood < calcNormalF(dog.weight)) group.toLittle.push(dog);
+    else if (dog.curFood > calcNormalF(dog.weight)) group.toMuch.push(dog);
+    else group.exact.push(dog);
+    return group;
+  },
+  { toLittle: [], toMuch: [], exact: [] }
+);
+console.log('To little: ', groupedDogs.toLittle);
+console.log('To much: ', groupedDogs.toMuch);
+console.log('Exact: ', groupedDogs.exact);
