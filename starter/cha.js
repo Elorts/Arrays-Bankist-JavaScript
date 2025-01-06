@@ -301,16 +301,18 @@ const calcNormalF = function (weight) {
 
 const ownersEatTooMuch = dogs
   .filter(dog => calcNormalF(dog.weight) < dog.curFood)
-  .map(dog => dog.owners);
+  .flatMap(dog => dog.owners);
 
 const ownersEatTooLittle = dogs
   .filter(dog => calcNormalF(dog.weight) > dog.curFood)
-  .map(dog => dog.owners);
+  .flatMap(dog => dog.owners);
 
 console.log('ownersEatTooMuch: ', ownersEatTooMuch);
 console.log('ownersEatTooLittle: ', ownersEatTooLittle);
 
 //4. Matilda and Alice and Bob's dogs eat too much! CAN BE DONE MORE EFFICIENTLY
+
+console.log('*************** 4 ******************');
 
 function outputString(arr, flag) {
   let str = '';
@@ -322,10 +324,14 @@ function outputString(arr, flag) {
   console.log(str);
 }
 
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs are eating too much`);
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs are eating too little`);
+
 outputString(ownersEatTooMuch.flat(), 'mutch');
 outputString(ownersEatTooLittle.flat(), 'little');
 
 //5. Correct!!!!
+console.log('*************** 5 ******************');
 
 const calcNormalF2 = function (weight) {
   return Math.floor(weight ** 0.75 * 28);
@@ -335,6 +341,8 @@ const rightAmount = dogs.some(dog => calcNormalF2(dog.weight) === dog.curFood);
 console.log(rightAmount);
 
 //6.
+console.log('*************** 6 ******************');
+
 const okAm = dogs.every(
   dog =>
     calcNormalF2(dog.weight) * 0.9 < dog.curFood &&
@@ -345,6 +353,8 @@ console.log('dogs eationg ok?: ', okAm);
 //current > (recommended * 0.90) && current < (recommended * 1.10)
 
 //7.
+console.log('*************** 7 ******************');
+
 const whoEatsOk = dogs.filter(
   dog =>
     calcNormalF2(dog.weight) * 0.9 < dog.curFood &&
@@ -355,6 +365,7 @@ console.log(whoEatsOk);
 
 //8.
 console.log(' ----- 8 -----');
+/*
 const groupedDogs = dogs.reduce(
   (group, dog) => {
     if (dog.curFood < calcNormalF(dog.weight)) group.toLittle.push(dog);
@@ -367,18 +378,22 @@ const groupedDogs = dogs.reduce(
 console.log('To little: ', groupedDogs.toLittle);
 console.log('To much: ', groupedDogs.toMuch);
 console.log('Exact: ', groupedDogs.exact);
-
-/*
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
-];
 */
+const dogsP = Object.groupBy(dogs, dog => {
+  if (dog.curFood > dog.recFood2) {
+    return 'too-much';
+  } else if (dog.curFood < dog.recFood2) {
+    return 'too-little';
+  } else {
+    return 'exact';
+  }
+});
+console.log(dogsP);
 
 //9.
+
 console.log('////////////// 9 ///////////////////');
+/*
 const roupedByNumberOfOwners = dogs.reduce(
   (groups, dog) => {
     if (dog.owners.length === 1) groups.oneOwner.push(dog);
@@ -387,9 +402,19 @@ const roupedByNumberOfOwners = dogs.reduce(
   },
   { oneOwner: [], twoOwners: [] }
 );
+*/
+const dogsG = Object.groupBy(dogs, dog => {
+  if (dog.owners.length === 1) {
+    return 'oneO';
+  } else {
+    return 'twoO';
+  }
+});
+console.log('o, t: ', dogsG);
 
+/*
 console.log('One owner: ', roupedByNumberOfOwners.oneOwner);
 console.log('Two owners: ', roupedByNumberOfOwners.twoOwners);
-
+*/
 //10.
 console.log(dogs.toSorted((a, b) => a.recFood - b.recFood));
