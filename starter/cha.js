@@ -403,13 +403,7 @@ const roupedByNumberOfOwners = dogs.reduce(
   { oneOwner: [], twoOwners: [] }
 );
 */
-const dogsG = Object.groupBy(dogs, dog => {
-  if (dog.owners.length === 1) {
-    return 'oneO';
-  } else {
-    return 'twoO';
-  }
-});
+const dogsG = Object.groupBy(dogs, dog => `${dog.owners.length}-owners`);
 console.log('o, t: ', dogsG);
 
 /*
@@ -417,4 +411,6 @@ console.log('One owner: ', roupedByNumberOfOwners.oneOwner);
 console.log('Two owners: ', roupedByNumberOfOwners.twoOwners);
 */
 //10.
+console.log('////////////// 10 ///////////////////');
+
 console.log(dogs.toSorted((a, b) => a.recFood - b.recFood));
