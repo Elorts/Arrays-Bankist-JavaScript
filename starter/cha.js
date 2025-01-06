@@ -276,22 +276,25 @@ const dogs = [
   { weight: 8, curFood: 200, owners: ['Matilda'] },
   { weight: 13, curFood: 191, owners: ['Sarah', 'John'] },
   { weight: 32, curFood: 340, owners: ['Michael'] },
+  { weight: 0, curFood: 0, owners: ['Kubilius'] },
 ];
 
 //1. recommendedFood = weight ** 0.75 * 28.
+console.log('++++++++++++ 1 +++++++++++++++++++++++');
 
-dogs.map(dog => (dog.recFood = dog.weight ** 0.75 * 28));
+dogs.forEach(dog => (dog.recFood2 = Math.floor(dog.weight ** 0.75 * 28)));
 console.log(dogs);
 
 //2.
-/*
+console.log('++++++++++++ 2 +++++++++++++++++++++++');
+
 const SarasDog = dogs.find(d => d.owners.includes('Sarah'));
 console.log(
   SarasDog.weight ** 0.75 * 28 < SarasDog.curFood ? 'Too mutch' : 'Too litle'
 );
-*/
 
 //3.
+console.log('*************** 3 ******************');
 const calcNormalF = function (weight) {
   return weight ** 0.75 * 28;
 };
@@ -323,15 +326,6 @@ outputString(ownersEatTooMuch.flat(), 'mutch');
 outputString(ownersEatTooLittle.flat(), 'little');
 
 //5. Correct!!!!
-
-/*
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
-];
-*/
 
 const calcNormalF2 = function (weight) {
   return Math.floor(weight ** 0.75 * 28);
@@ -373,3 +367,29 @@ const groupedDogs = dogs.reduce(
 console.log('To little: ', groupedDogs.toLittle);
 console.log('To much: ', groupedDogs.toMuch);
 console.log('Exact: ', groupedDogs.exact);
+
+/*
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+*/
+
+//9.
+console.log('////////////// 9 ///////////////////');
+const roupedByNumberOfOwners = dogs.reduce(
+  (groups, dog) => {
+    if (dog.owners.length === 1) groups.oneOwner.push(dog);
+    else groups.twoOwners.push(dog);
+    return groups;
+  },
+  { oneOwner: [], twoOwners: [] }
+);
+
+console.log('One owner: ', roupedByNumberOfOwners.oneOwner);
+console.log('Two owners: ', roupedByNumberOfOwners.twoOwners);
+
+//10.
+console.log(dogs.toSorted((a, b) => a.recFood - b.recFood));
